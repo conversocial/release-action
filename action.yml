@@ -1,0 +1,6 @@
+---
+name: 'Semantic Release'
+description: 'Runs Semantic Release in conv_cicda image'
+runs:
+  using: 'docker'
+  image: 'conversocial/conv_cicada:latest'
