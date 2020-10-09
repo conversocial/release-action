@@ -1,6 +1,13 @@
 ---
 name: 'Semantic Release'
 description: 'Runs Semantic Release in conv_cicda image'
+inputs:
+  dryRun:
+    description: 'Run semantic release in dry run mode --dry-run'
+    required: false
+    default: ''
 runs:
   using: 'docker'
-  image: 'conversocial/conv_cicada:latest'
+  image: './Dockerfile'
+  args:
+    - ${{ inputs.dryRun }}
