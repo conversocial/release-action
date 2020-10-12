@@ -78,6 +78,5 @@ plugins:
     - assets:
         - README.md
         - CHANGELOG.md
-        - .bumpversion.cfg
         - release-action/*
       message: "chore(release): :rocket: ${nextRelease.version} [skip ci]"
