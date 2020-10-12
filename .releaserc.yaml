@@ -47,31 +47,31 @@ plugins:
   - - '@semantic-release/changelog'
     - changelogFile: "CHANGELOG.md"
 
-  # https://github.com/juliuscc/semantic-release-slack-bot
-  - - 'semantic-release-slack-bot'
-    - notifyOnSuccess: true
-      notifyOnFail: true
-      slackWebhookEnVar: SLACK_WEBHOOK_URL
-      markdownReleaseNotes: true
-      onSuccessTemplate:
-        text: "New Release: $package_name"
-        blocks:
-          - type: divider
-          - type: section
-            text:
-              type: mrkdwn
-              text: |
-                :rocket: New Release: `$package_name` :rocket:
-          - type: section
-            text:
-              type: mrkdwn
-              text: |
-                $release_notes
-          - type: context
-            elements:
-              - type: mrkdwn
-                text: |
-                  :package: *<$repo_url|$repo_path>*   <$repo_url/releases/tag/v$npm_package_version|v$npm_package_version>
+      ## https://github.com/juliuscc/semantic-release-slack-bot
+      #- - 'semantic-release-slack-bot'
+      #  - notifyOnSuccess: true
+      #    notifyOnFail: true
+      #    slackWebhookEnVar: SLACK_WEBHOOK_URL
+      #    markdownReleaseNotes: true
+      #    onSuccessTemplate:
+      #      text: "New Release: $package_name"
+      #      blocks:
+      #        - type: divider
+      #        - type: section
+      #          text:
+      #            type: mrkdwn
+      #            text: |
+      #              :rocket: New Release: `$package_name` :rocket:
+      #        - type: section
+      #          text:
+      #            type: mrkdwn
+      #            text: |
+      #              $release_notes
+      #        - type: context
+      #          elements:
+      #            - type: mrkdwn
+      #              text: |
+      #                :package: *<$repo_url|$repo_path>*   <$repo_url/releases/tag/v$npm_package_version|v$npm_package_version>
 
   # https://github.com/semantic-release/git
   - - '@semantic-release/git'
