@@ -2,9 +2,9 @@
 
 # 1st input enables dry run mode
 if [[ -n $1 ]];then
-    $SR_ARGS="--dry-run"
+    SR_ARGS="--dry-run"
 fi
 
 cd $GITHUB_WORKSPACE
 
-npx semantic-release $SR_ARGS
+exec npx semantic-release  $SR_ARGS
