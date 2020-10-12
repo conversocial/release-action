@@ -55,19 +55,19 @@ jobs:
       - name: Semantic Release
         run: npx semantic-release
 
-  slack-workflow-status:
-    if: always()
-    name: Notify
-    needs: [checks, test-release, release]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Slack Workflow Notification
-        uses: Gamesight/slack-workflow-status@master
-        with:
-          # Required Input
-          repo_token: ${{secrets.GITHUB_TOKEN}}
-          slack_webhook_url: ${{secrets.SLACK_WEBHOOK_URL}}
-          channel: '#release-libs'
-          name: GitHub Actions
-          icon_emoji: ':tophat:'
-          include_jobs: true
+        #  slack-workflow-status:
+        #    if: always()
+        #    name: Notify
+        #    needs: [checks, test-release, release]
+        #    runs-on: ubuntu-latest
+        #    steps:
+        #      - name: Slack Workflow Notification
+        #        uses: Gamesight/slack-workflow-status@master
+        #        with:
+        #          # Required Input
+        #          repo_token: ${{secrets.GITHUB_TOKEN}}
+        #          slack_webhook_url: ${{secrets.SLACK_WEBHOOK_URL}}
+        #          channel: '#release-libs'
+        #          name: GitHub Actions
+        #          icon_emoji: ':tophat:'
+        #          include_jobs: true
