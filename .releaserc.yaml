@@ -1,0 +1,83 @@
+---
+# https://semantic-release.gitbook.io/semantic-release/usage/configuration
+branches:
+  - name: master
+
+plugins:
+
+  # https://github.com/semantic-release/commit-analyzer
+  - - '@semantic-release/commit-analyzer'
+    - preset: conventionalcommits
+
+  # https://github.com/semantic-release/release-notes-generator
+  # https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-conventionalcommits
+  - - '@semantic-release/release-notes-generator'
+    - preset: conventionalcommits
+      presetConfig:
+        types:
+          - type: feat
+            section: "✨ Features"
+            hidden: false
+          - type: fix
+            section: "🐛 Bug Fixes"
+            hidden: false
+          - type: test
+            section: "✅ Quality"
+            hidden: false
+          - type: ci
+            section: "💚 CI"
+            hidden: false
+          - type: docs
+            section: "📝 Documentation"
+            hidden: false
+          - type: perf
+            section: "⚡️ Performance"
+            hidden: false
+          - type: refactor
+            section: "♻️ Refactoring"
+            hidden: false
+          - type: style
+            section: "🎨 Style"
+            hidden: false
+          - type: chore
+            section: "🔧 Chores"
+            hidden: false
+
+  # https://github.com/semantic-release/changelog
+  - - '@semantic-release/changelog'
+    - changelogFile: "CHANGELOG.md"
+
+  # https://github.com/juliuscc/semantic-release-slack-bot
+  - - 'semantic-release-slack-bot'
+    - notifyOnSuccess: true
+      notifyOnFail: true
+      slackWebhookEnVar: SLACK_WEBHOOK_URL
+      markdownReleaseNotes: true
+      onSuccessTemplate:
+        text: "New Release: $package_name"
+        blocks:
+          - type: divider
+          - type: section
+            text:
+              type: mrkdwn
+              text: |
+                :rocket: New Release: `$package_name` :rocket:
+          - type: section
+            text:
+              type: mrkdwn
+              text: |
+                $release_notes
+          - type: context
+            elements:
+              - type: mrkdwn
+                text: |
+                  :package: *<$repo_url|$repo_path>*   <$repo_url/releases/tag/v$npm_package_version|v$npm_package_version>
+
+  # https://github.com/semantic-release/git
+  - - '@semantic-release/git'
+    - assets:
+        - README.md
+        - CHANGELOG.md
+        - .bumpversion.cfg
+        - release-action/*
+      message: "chore(release): :rocket: ${nextRelease.version} [skip ci]"
