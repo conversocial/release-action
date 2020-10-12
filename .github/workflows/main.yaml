@@ -58,8 +58,7 @@ jobs:
   slack-workflow-status:
     if: always()
     name: Notify
-    needs:
-      - containerise
+    needs: [checks, test-release, release]
     runs-on: ubuntu-latest
     steps:
       - name: Slack Workflow Notification
