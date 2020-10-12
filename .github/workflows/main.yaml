@@ -20,8 +20,8 @@ jobs:
         with:
           persist-credentials: false
       - name: Semantic Release
-        container:
-          image: ./Dockerfile
+        uses: docker://conversocial/conv_cicda:latest
+
   release:
     name: Release
     runs-on: ubuntu-latest
@@ -35,8 +35,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Semantic Release
-        container:
-          image: ./Dockerfile
+        uses: docker://conversocial/conv_cicda:latest
 
   slack-workflow-status:
     if: always()
