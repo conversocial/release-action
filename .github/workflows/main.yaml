@@ -1,0 +1,73 @@
+---
+name: Main
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  checks:
+    name: Checks
+    runs-on: ubuntu-latest
+    container:
+      image: "conversocial/conv-cicada:latest"
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Pre-Commit
+        run: pre-commit run --all-files
+
+  test-release:
+    name: Test-Release
+    needs: [checks]
+    runs-on: ubuntu-latest
+    container:
+      image: "conversocial/conv-cicada:latest"
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Semantic Release
+        run: npx semantic-release --dry-run
+
+  release:
+    name: Release
+    needs: [checks, test-release]
+    runs-on: ubuntu-latest
+    container:
+      image: "conversocial/conv-cicada:latest"
+    if: >
+      !contains(github.event.head_commit.message, 'skip ci')
+      && github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Semantic Release
+        run: npx semantic-release
+
+        #  slack-workflow-status:
+        #    if: always()
+        #    name: Notify
+        #    needs: [checks, test-release, release]
+        #    runs-on: ubuntu-latest
+        #    steps:
+        #      - name: Slack Workflow Notification
+        #        uses: Gamesight/slack-workflow-status@master
+        #        with:
+        #          # Required Input
+        #          repo_token: ${{secrets.GITHUB_TOKEN}}
+        #          slack_webhook_url: ${{secrets.SLACK_WEBHOOK_URL}}
+        #          channel: '#release-libs'
+        #          name: GitHub Actions
+        #          icon_emoji: ':tophat:'
+        #          include_jobs: true
