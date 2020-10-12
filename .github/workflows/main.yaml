@@ -13,7 +13,7 @@ jobs:
     name: Checks
     runs-on: ubuntu-latest
     container:
-      image: "conversocial/conv_cicda:latest"
+      image: "conversocial/conv-cicada:latest"
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     steps:
       - name: Checkout
@@ -28,7 +28,7 @@ jobs:
     needs: [checks]
     runs-on: ubuntu-latest
     container:
-      image: "conversocial/conv_cicda:latest"
+      image: "conversocial/conv-cicada:latest"
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     steps:
       - name: Checkout
@@ -43,7 +43,7 @@ jobs:
     needs: [checks, test-release]
     runs-on: ubuntu-latest
     container:
-      image: "conversocial/conv_cicda:latest"
+      image: "conversocial/conv-cicada:latest"
     if: >
       !contains(github.event.head_commit.message, 'skip ci')
       && github.ref == 'refs/heads/master'
