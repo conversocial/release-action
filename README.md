@@ -21,3 +21,4 @@ pyenv shell $(pyenv local) $(pyenv global)
 
 # Set up pre-commit
 pre-commit install -f --install-hooks -t commit-msg
+```
