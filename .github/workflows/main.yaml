@@ -37,6 +37,8 @@ jobs:
           persist-credentials: false
       - name: Semantic Release
         run: npx semantic-release --dry-run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   release:
     name: Release
