@@ -1,3 +1,10 @@
+### [1.1.1](https://github.com/conversocial/release-action/compare/v1.1.0...v1.1.1) (2020-11-09)
+
+
+### 🐛 Bug Fixes
+
+* use GHCR image to release as well ([08566e9](https://github.com/conversocial/release-action/commit/08566e9e33b29bc8ddd42ef5da7b2aa607ce6f66))
+
 ## [1.1.0](https://github.com/conversocial/release-action/compare/v1.0.0...v1.1.0) (2020-11-09)
 
 
