@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/conversocial/release-action/compare/v1.0.0...v1.1.0) (2020-11-09)
+
+
+### ✨ Features
+
+* use the GHCR public image ([6512c6b](https://github.com/conversocial/release-action/commit/6512c6b6bc5e5a09f070abe45319448f64bcc64a))
+
 ## 1.0.0 (2020-10-13)
 
 
