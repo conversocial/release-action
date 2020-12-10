@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/conversocial/release-action/compare/v1.1.1...v1.2.0) (2020-12-10)
+
+
+### ✨ Features
+
+* use v2.7 of conv-cicada ([079a889](https://github.com/conversocial/release-action/commit/079a8895230fc2c83d8b2a9e3aa8804bc8ff2e1d))
+
 ### [1.1.1](https://github.com/conversocial/release-action/compare/v1.1.0...v1.1.1) (2020-11-09)
 
 
