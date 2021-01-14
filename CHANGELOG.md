@@ -1,3 +1,16 @@
+### [1.2.1](https://github.com/conversocial/release-action/compare/v1.2.0...v1.2.1) (2021-01-14)
+
+
+### 🐛 Bug Fixes
+
+* **docs:** Update readme, force release ([fd9d650](https://github.com/conversocial/release-action/commit/fd9d650dfb74f600d984506d66be9f72baf45a72))
+
+
+### 🔧 Chores
+
+* **deps:** Bump conv-cicada to 2.7.1 ([e6c7a9f](https://github.com/conversocial/release-action/commit/e6c7a9f7ab09150b6dc5262d68658ebf8fff7d66))
+* **docs:** Fix typo ([2941613](https://github.com/conversocial/release-action/commit/29416135d320005bbe4c1db3c3a00ec7023f7386))
+
 ## [1.2.0](https://github.com/conversocial/release-action/compare/v1.1.1...v1.2.0) (2020-12-10)
 
 
