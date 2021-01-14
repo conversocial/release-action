@@ -15,7 +15,7 @@ Plugins and utilities are installed in the conv_cicada docker image.
 
 ```bash
 # Clone the repo
-git clone git@github.com:conversocial/release-action-.git && cd release-action
+git clone git@github.com:conversocial/release-action.git && cd release-action
 
 # Set up your pyenv versions
 pyenv shell $(pyenv local) $(pyenv global)
